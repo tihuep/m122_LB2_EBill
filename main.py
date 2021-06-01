@@ -1,1 +1,3 @@
-print('test 1 2 3')
+import client_system_client
+
+invoices = client_system_client.download_invoices()
