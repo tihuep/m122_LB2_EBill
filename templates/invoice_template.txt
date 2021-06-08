@@ -1,0 +1,61 @@
+
+
+
+
+{firstname} {lastname}
+{address}
+{zip} {city}
+
+{firm_id}
+
+
+
+
+{invoice_place}, den {invoice_date}                                         {receiver_name}
+                                                                            {receiver_address}
+                                                                            {receiver_zip_and_city}
+
+Kundennummer:       {client_nr   }
+Auftragsnummer:     {order_nr    }
+
+Rechnung Nr         {invoice_nr  }
+--------------------------------
+{pos_nr}  {pos_description                                      }{pos_amount}    {pos_single_sum}  {curr }  {pos_sum     }  {pos_mwst}
+                                                                                                         -----------------
+                                                                                  Total    {curr }          {invoice_sum }
+
+                                                                                  MWST     {curr }          {invoice_mwst}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Zahlungsziel ohne Abzug {payment_limit_days} Tage {payment_date_limit}
+
+Einzahlungsschein
+
+
+
+
+
+
+
+
+    {invoice_sum }                          {invoice_sum }      {receiver_name}
+                                                                {receiver_address}
+{receiver_account_nr}                                           {receiver_zip_and_city}
+
+{receiver_name}
+{receiver_address}
+{receiver_zip_and_city}
