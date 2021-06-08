@@ -6,7 +6,7 @@
 {address}
 {zip} {city}
 
-{firm_id}
+{tax_no}
 
 
 
@@ -41,9 +41,13 @@ Rechnung Nr         {invoice_nr  }
 
 
 
-Zahlungsziel ohne Abzug {payment_limit_days} Tage {payment_date_limit}
+
+Zahlungsziel ohne Abzug {payment_limit_days} Tage ({payment_date_limit})
 
 Einzahlungsschein
+
+
+
 
 
 
