@@ -4,12 +4,15 @@ import re
 def download_invoices():
     invoices = get_invoice_filenames()
     ftp = getFTPConnection()
+    invoice_count = 0
     for invoice in invoices:
         filename = invoice[63:len(invoice)]
         with open('tmp/invoices/' + filename + '.csv', 'wb') as file:
             ftp.retrbinary('RETR ' + filename, file.write)
         ftp.delete(filename)
+        invoice_count = invoice_count + 1
     ftp.quit()
+    return invoice_count
 
 def get_invoice_filenames():
     ftp_invoices = []
