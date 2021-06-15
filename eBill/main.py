@@ -12,8 +12,6 @@ for file in csv_files:
     csv_data.append(csv_parser.parse_csv('tmp/invoices/' + file))
 
 for file in csv_data:
-    file_generator.generate_txt(file)
-    file_generator.generate_xml(file)
-    for row in file:
-        for value in row:
-            continue
+    txt_file = file_generator.generate_txt(file)
+    xml_file = file_generator.generate_xml(file)
+    target_system_client.upload_files(txt_file, xml_file)
