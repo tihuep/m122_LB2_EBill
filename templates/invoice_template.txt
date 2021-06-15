@@ -2,9 +2,9 @@
 
 
 
-{firstname} {lastname}
-{address}
-{zip} {city}
+{sender_name}
+{sender_address}
+{sender_zip_and_city}
 
 {tax_no}
 
@@ -15,16 +15,16 @@
                                                                             {receiver_address}
                                                                             {receiver_zip_and_city}
 
-Kundennummer:       {client_nr   }
-Auftragsnummer:     {order_nr    }
+Kundennummer:    {client_nr  }
+Auftragsnummer:  {order_nr   }
 
-Rechnung Nr         {invoice_nr  }
---------------------------------
-{pos_nr}  {pos_description                                      }{pos_amount}    {pos_single_sum}  {curr }  {pos_sum     }  {pos_mwst}
-                                                                                                         -----------------
-                                                                                  Total    {curr }          {invoice_sum }
+Rechnung Nr      {invoice_nr }
+------------------------------
+{pos_nr}  {pos_description                                  }{pos_amount} {pos_single_sum}  {curr}  {pos_sum     }  {pos_mwst}
+                                                                                                 -----------------
+                                                                           Total    {curr }         {invoice_sum }
 
-                                                                                  MWST     {curr }          {invoice_mwst}
+                                                                           MWST     {curr }         {invoice_mwst}
 
 
 
