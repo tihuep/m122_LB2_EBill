@@ -5,10 +5,9 @@ from os.path import isfile, join
 def parse_csv(filename):
     csv_data = []
     with open(filename, newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-        for row in spamreader:
+        csvreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+        for row in csvreader:
             csv_data.append(row)
-            print('#'.join(row))
     return csv_data
 
 def get_all_csv_files():

@@ -1,6 +1,8 @@
 import client_system_client
 import csv_parser
 import file_generator
+import target_system_client
+import os
 
 invoices = client_system_client.download_invoices()
 if (invoices == 0):
@@ -10,6 +12,8 @@ csv_data = []
 csv_files = csv_parser.get_all_csv_files()
 for file in csv_files:
     csv_data.append(csv_parser.parse_csv('tmp/invoices/' + file))
+    if os.path.exists('tmp/invoices/' + file):
+        os.remove('tmp/invoices/' + file)
 
 for file in csv_data:
     txt_file = file_generator.generate_txt(file)

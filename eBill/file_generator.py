@@ -5,7 +5,7 @@ def generate_txt(csv_data):
     template_file = open('templates/invoice_template.txt', 'r')
     Lines = template_file.readlines()
 
-    output_file = open('tmp/six_files/' + csv_data[0][0].split("_")[1] + '_' + 'invoice.txt', 'w')
+    output_file = open('tmp/six_files/' + csv_data[1][2] + '_' + csv_data[0][0].split('_')[1] + '_' + 'invoice.txt', 'w')
     for line in Lines:
         iterations = 1
         if (line.__contains__('pos')):
@@ -30,7 +30,7 @@ def generate_xml(csv_data):
     template_file = open('templates/invoice_template.xml', 'r')
     Lines = template_file.readlines()
 
-    output_file = open('tmp/six_files/' + csv_data[0][0].split("_")[1] + '_' + 'invoice.xml', 'w')
+    output_file = open('tmp/six_files/' + csv_data[1][2] + '_' + csv_data[0][0].split('_')[1] + '_' + 'invoice.xml', 'w')
     for line in Lines:
         new_line = line
         for _ in [m.start() for m in re.finditer('\{', str(line))]:
