@@ -30,7 +30,18 @@ def generate_xml(csv_data):
     template_file = open('templates/invoice_template.xml', 'r')
     Lines = template_file.readlines()
 
-    return None
+    output_file = open('tmp/six_files/' + csv_data[0][0].split("_")[1] + '_' + 'invoice.xml', 'w')
+    for line in Lines:
+        new_line = line
+        for _ in [m.start() for m in re.finditer('\{', str(line))]:
+            var_start = new_line.find('{')
+            var_end = new_line.find('}')
+            old = new_line[var_start:var_end+1]
+            var = new_line[var_start+1:var_end]
+            new = get_value(csv_data, var, None, 'xml')
+            new_line = new_line.replace(old, new, 1)
+        output_file.write(new_line)
+    output_file.close()
 
     return str(output_file.name)
 

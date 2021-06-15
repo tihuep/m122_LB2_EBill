@@ -17,23 +17,23 @@
       <MESSAGE-REFERENCE>
         <REFERENCE-DATE>
 !          <Reference-No>202007164522001</Reference-No>
-!          <Date>20200731</Date>
+!          <Date>{xml_date}</Date>
         </REFERENCE-DATE>
       </MESSAGE-REFERENCE>
       <PRINT-DATE>
-        <Date>{print_date}</Date>
+        <Date>{xml_date}</Date>
       </PRINT-DATE>
       <REFERENCE>
         <INVOICE-REFERENCE>
           <REFERENCE-DATE>
             <Reference-No>{invoice_nr}</Reference-No>
-            <Date>{invoice_date}</Date>
+            <Date>{xml_date}</Date>
           </REFERENCE-DATE>
         </INVOICE-REFERENCE>
         <ORDER>
           <REFERENCE-DATE>
-            <Reference-No>order_nr</Reference-No>
-            <Date>{order_date}</Date>
+            <Reference-No>{order_nr}</Reference-No>
+            <Date>{xml_date}</Date>
           </REFERENCE-DATE>
         </ORDER>
         <REMINDER Which="MAH">
@@ -45,7 +45,7 @@
         <OTHER-REFERENCE Type="ADE">
           <REFERENCE-DATE>
             <Reference-No>12345678</Reference-No>
-            <Date>{ade_date}</Date>
+            <Date>{xml_date}</Date>
           </REFERENCE-DATE>
         </OTHER-REFERENCE>
       </REFERENCE>
@@ -57,9 +57,9 @@
         </PARTY-ID>
         <NAME-ADDRESS Format="COM">
           <NAME>
-            <Line-35>{firstname} {lastname}</Line-35>
-            <Line-35>{address}</Line-35>
-            <Line-35>{zip} {city}</Line-35>
+            <Line-35>{sender_name}</Line-35>
+            <Line-35>{sender_address}</Line-35>
+            <Line-35>{sender_zip_and_city}</Line-35>
             <Line-35></Line-35>
             <Line-35></Line-35>
           </NAME>
