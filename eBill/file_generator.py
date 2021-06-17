@@ -61,7 +61,7 @@ def get_value(csv_data, var_name, iteration, format):
         value = csv_data[1][6]
     elif var_name.strip() == 'invoice_place':
         true_length = True
-        value = csv_data[0][2]
+        value = csv_data[0][2] + ','
     elif var_name.strip() == 'invoice_date':
         true_length = True
         value = csv_data[0][3]

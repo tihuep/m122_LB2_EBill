@@ -11,8 +11,8 @@
 
 
 
-{invoice_place}, den {invoice_date}                                         {receiver_name}
-                                                                            {receiver_address}
+{invoice_place                   }                                          {receiver_name}
+den {invoice_date                }                                          {receiver_address}
                                                                             {receiver_zip_and_city}
 
 Kundennummer:    {client_nr  }
