@@ -16,8 +16,8 @@
       </FUNCTION-FLAGS>
       <MESSAGE-REFERENCE>
         <REFERENCE-DATE>
-!          <Reference-No>202007164522001</Reference-No>
-!          <Date>{xml_date}</Date>
+          <Reference-No>{reference_nr}</Reference-No>
+          <Date>{xml_date}</Date>
         </REFERENCE-DATE>
       </MESSAGE-REFERENCE>
       <PRINT-DATE>

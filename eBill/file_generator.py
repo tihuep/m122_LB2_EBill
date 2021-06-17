@@ -140,7 +140,9 @@ def get_value(csv_data, var_name, iteration, format):
     elif var_name.strip() == 'invoice_date_day':
         date = datetime.datetime.strptime(csv_data[0][3], '%d.%m.%Y')
         value = date.date().__format__('%d')
-
+    elif var_name.strip() == 'reference_nr':
+        date = datetime.datetime.now(datetime.timezone(datetime.timedelta(0, 0, 0, 0, 0, 1)))
+        value = date.date().__format__('%Y%m%d') + csv_data[0][0].split("_")[1] + csv_data[0][1].split("_")[1]
     if (true_length and format == 'txt'):
         if (len(var_name) + 2 > len(value)):
             for _ in range(0, len(var_name) + 2 - len(value)):
