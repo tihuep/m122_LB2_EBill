@@ -3,7 +3,7 @@ import re
 
 def download_receipts():
     receipts = get_receipt_filenames()
-    ftp = getFTPConnection()
+    ftp = get_ftp_connection()
     receipt_count = 0
     for receipt in receipts:
         filename = receipt[62:len(receipt)]
@@ -16,7 +16,7 @@ def download_receipts():
 
 def get_receipt_filenames():
     ftp_receipts = []
-    ftp = getFTPConnection()
+    ftp = get_ftp_connection()
     def list_callback(data):
         ftp_receipts.append(data)
     ftp.dir(list_callback)
@@ -34,7 +34,7 @@ def get_receipt_filenames():
 
     return filtered_receipts
 
-def getFTPConnection():
+def get_ftp_connection():
     ftp = FTP(host='134.119.225.245', user='310721-297-zahlsystem', passwd='Berufsschule8005!')
     ftp.cwd('out/AP18dHueppi')
     return ftp

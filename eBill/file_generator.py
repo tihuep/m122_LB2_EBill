@@ -3,10 +3,10 @@ import datetime
 
 def generate_txt(csv_data):
     template_file = open('templates/invoice_template.txt', 'r')
-    Lines = template_file.readlines()
+    lines = template_file.readlines()
 
     output_file = open('tmp/six_files/' + csv_data[1][2] + '_' + csv_data[0][0].split('_')[1] + '_' + 'invoice.txt', 'w')
-    for line in Lines:
+    for line in lines:
         iterations = 1
         if (line.__contains__('pos')):
             iterations = len(csv_data) - 3
@@ -25,13 +25,11 @@ def generate_txt(csv_data):
     return str(output_file.name)
 
 def generate_xml(csv_data):
-    csv_data[3][6] = 'MWST_5.40%'
-    csv_data[4][6] = 'MWST_2.21%'
     template_file = open('templates/invoice_template.xml', 'r')
-    Lines = template_file.readlines()
+    lines = template_file.readlines()
 
     output_file = open('tmp/six_files/' + csv_data[1][2] + '_' + csv_data[0][0].split('_')[1] + '_' + 'invoice.xml', 'w')
-    for line in Lines:
+    for line in lines:
         new_line = line
         for _ in [m.start() for m in re.finditer('\{', str(line))]:
             var_start = new_line.find('{')
@@ -49,7 +47,7 @@ def get_value(csv_data, var_name, iteration, format):
     true_length = False
     right_just = False
     csv_records = len(csv_data)
-    posCount = len(csv_data) - 3
+    pos_count = len(csv_data) - 3
     value = ''
     if var_name.strip() == 'sender_name':
         value = csv_data[1][3]
@@ -110,14 +108,14 @@ def get_value(csv_data, var_name, iteration, format):
         true_length = True
         right_just = True
         sum = 0
-        for i in range(csv_records - posCount, csv_records):
+        for i in range(csv_records - pos_count, csv_records):
             sum = sum + float(csv_data[i][5])
         value = str(sum)
     elif var_name.strip() == 'invoice_mwst':
         true_length = True
         right_just = True
         mwst = 0
-        for i in range(csv_records - posCount, csv_records):
+        for i in range(csv_records - pos_count, csv_records):
             mwst = mwst + float(float(csv_data[i][6].split("_")[1].rstrip("%"))/100 * float(csv_data[i][5]))
         value = str(mwst)
     elif var_name.strip() == 'payment_limit_days':

@@ -3,7 +3,7 @@ import re
 
 def download_invoices():
     invoices = get_invoice_filenames()
-    ftp = getFTPConnection()
+    ftp = get_ftp_connection()
     invoice_count = 0
     for invoice in invoices:
         filename = invoice[63:len(invoice)]
@@ -16,7 +16,7 @@ def download_invoices():
 
 def get_invoice_filenames():
     ftp_invoices = []
-    ftp = getFTPConnection()
+    ftp = get_ftp_connection()
     def list_callback(data):
         ftp_invoices.append(data)
     ftp.dir(list_callback)
@@ -34,7 +34,7 @@ def get_invoice_filenames():
 
     return filtered_invoices
 
-def getFTPConnection():
+def get_ftp_connection():
     ftp = FTP(host='ftp.haraldmueller.ch',user='schoolerinvoices',passwd='Berufsschule8005!')
     ftp.cwd('out/AP18dHueppi')
     return ftp
