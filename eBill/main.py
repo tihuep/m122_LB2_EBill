@@ -16,6 +16,9 @@ for file in csv_files:
         os.remove('tmp/invoices/' + file)
 
 for file in csv_data:
+    f = open('tmp/inv_email.csv', 'a')
+    f.write(file[0][0].split("_")[1] + ';' + file[1][7] + '\n')
+
     txt_file = file_generator.generate_txt(file)
     xml_file = file_generator.generate_xml(file)
     target_system_client.upload_files(txt_file, xml_file)
