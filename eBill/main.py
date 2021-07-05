@@ -11,12 +11,12 @@ if (invoices == 0):
 csv_data = []
 csv_files = csv_parser.get_all_csv_files()
 for file in csv_files:
-    csv_data.append(csv_parser.parse_csv('tmp/invoices/' + file))
-    if os.path.exists('tmp/invoices/' + file):
-        os.remove('tmp/invoices/' + file)
+    csv_data.append(csv_parser.parse_csv('/tmp/m122_eBill/invoices/' + file))
+    if os.path.exists('/tmp/m122_eBill/invoices/' + file):
+        os.remove('/tmp/m122_eBill/invoices/' + file)
 
 for file in csv_data:
-    f = open('tmp/inv_email.csv', 'a')
+    f = open('/tmp/m122_eBill/inv_email.csv', 'a')
     f.write(file[0][0].split("_")[1] + ';' + file[1][7] + '\n')
 
     txt_file = file_generator.generate_txt(file)

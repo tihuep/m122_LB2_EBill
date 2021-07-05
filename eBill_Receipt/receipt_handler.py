@@ -3,7 +3,7 @@ from os.path import isfile, join
 import re
 
 def get_all_invoices_from_receipts():
-    path = '../tmp/receipts'
+    path = '/tmp/m122_eBill/receipts'
     receipts_filenames = [f for f in listdir(path) if isfile(join(path, f))]
 
     def filter_receipt(receipt):
@@ -19,7 +19,7 @@ def get_all_invoices_from_receipts():
 
     receipt_invoice_email = []
     for receipt in filtered_receipts:
-        file = open('../tmp/receipts/' + receipt, 'r')
+        file = open('/tmp/m122_eBill/receipts/' + receipt, 'r')
         Lines = file.readlines()
         file.close()
         for line in Lines:
@@ -29,7 +29,7 @@ def get_all_invoices_from_receipts():
     return receipt_invoice_email
 
 def get_invoice_file(invoice_number):
-    path = '../tmp/six_files/'
+    path = '/tmp/m122_eBill/six_files/'
     files = [f for f in listdir(path) if isfile(join(path, f))]
     for file in files:
         if file.__contains__('invoice.txt'):
@@ -38,7 +38,7 @@ def get_invoice_file(invoice_number):
     return None
 
 def get_email_of_invoice(invoice_number):
-    file = open('../tmp/inv_email.csv', 'r')
+    file = open('/tmp/m122_eBill/inv_email.csv', 'r')
     lines = file.readlines()
     for line in lines:
         if line.split(';')[0] == invoice_number:

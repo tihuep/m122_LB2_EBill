@@ -12,5 +12,5 @@ def parse_csv(filename):
 
 def get_all_csv_files():
     #https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory
-    path = 'tmp/invoices'
+    path = '/tmp/m122_eBill/invoices'
     return [f for f in listdir(path) if isfile(join(path, f))]
