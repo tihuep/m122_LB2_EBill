@@ -25,7 +25,7 @@ def get_all_invoices_from_receipts():
         for line in Lines:
             if line.split(' -- ')[0].find('.xml') > 0:
                 invoice_number = line.split(' -- ')[1].split('/')[1][4:]
-                receipt_invoice_email.append([invoice_number, receipt, get_invoice_file(invoice_number), get_email_of_invoice(invoice_number)])
+                receipt_invoice_email.append([invoice_number, receipt, get_invoice_file(invoice_number), get_email_of_invoice(invoice_number), get_name_of_invoice(invoice_number), get_date_of_invoice(invoice_number)])
     return receipt_invoice_email
 
 def get_invoice_file(invoice_number):
@@ -43,4 +43,21 @@ def get_email_of_invoice(invoice_number):
     for line in lines:
         if line.split(';')[0] == invoice_number:
             return line.split(';')[1]
+    return None
+
+def get_name_of_invoice(invoice_number):
+    file = open('/home/timon/workspace/m122/m122_LB2_EBill/tmp/inv_email.csv', 'r')
+    lines = file.readlines()
+    for line in lines:
+        if line.split(';')[0] == invoice_number:
+            return line.split(';')[2]
+    return None
+
+
+def get_date_of_invoice(invoice_number):
+    file = open('/home/timon/workspace/m122/m122_LB2_EBill/tmp/inv_email.csv', 'r')
+    lines = file.readlines()
+    for line in lines:
+        if line.split(';')[0] == invoice_number:
+            return line.split(';')[3]
     return None

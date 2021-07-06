@@ -5,7 +5,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 from pathlib import Path
 
-def send_email(email, filename, invoice_nr):
+def send_email(email, filename, invoice_nr, name, date):
     sender_mail = "ebill.hueppi.tbz@gmail.com"
     password = "Berufsschule8005!"
 
@@ -14,14 +14,10 @@ def send_email(email, filename, invoice_nr):
     message['To'] = email
     message['Subject'] = f'Erfolgte Verarbeitung Rechnung {invoice_nr}'
 
-    firstname = 'Max'
-    lastname = 'Mustermann'
-    date = '69.69.6969'
+    message.attach(MIMEText(f'''Sehr geehrte(r) {name},
 
-    message.attach(MIMEText(f'''Sehr geehrte(r) {firstname} {lastname},
-
-Am {date} wurde die erfolgreiche Bearbeitung der Rechnung {invoice_nr}
-vom Zahlungssystem <<>> gemeldet.
+Am {str(date)} wurde die erfolgreiche Bearbeitung der Rechnung {invoice_nr}
+vom Zahlungssystem <<TBZ Zahlsystem>> gemeldet.
 
 Mit freundlichen Grüssen
 
