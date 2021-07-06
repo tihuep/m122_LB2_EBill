@@ -11,13 +11,13 @@ if (invoices == 0):
 csv_data = []
 csv_files = csv_parser.get_all_csv_files()
 for file in csv_files:
-    csv_data.append(csv_parser.parse_csv('/tmp/m122_eBill/invoices/' + file))
-    if os.path.exists('/tmp/m122_eBill/invoices/' + file):
-        os.remove('/tmp/m122_eBill/invoices/' + file)
+    csv_data.append(csv_parser.parse_csv('/home/timon/workspace/m122/m122_LB2_EBill/tmp/invoices/' + file))
+    if os.path.exists('/home/timon/workspace/m122/m122_LB2_EBill/tmp/invoices/' + file):
+        os.remove('/home/timon/workspace/m122/m122_LB2_EBill/tmp/invoices/' + file)
 
 for file in csv_data:
-    f = open('/tmp/m122_eBill/inv_email.csv', 'a')
-    f.write(file[0][0].split("_")[1] + ';' + file[1][7] + '\n')
+    f = open('/home/timon/workspace/m122/m122_LB2_EBill/tmp/inv_email.csv', 'a')
+    f.write(file[0][0].split("_")[1] + ';' + file[1][7] + ';' + file[1][3] + ';' + file[0][3] + '\n')
 
     txt_file = file_generator.generate_txt(file)
     xml_file = file_generator.generate_xml(file)

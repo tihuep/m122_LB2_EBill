@@ -7,7 +7,7 @@ def download_receipts():
     receipt_count = 0
     for receipt in receipts:
         filename = receipt[62:len(receipt)]
-        with open('/tmp/m122_eBill/receipts/' + filename, 'wb') as file:
+        with open('/home/timon/workspace/m122/m122_LB2_EBill/tmp/receipts/' + filename, 'wb') as file:
             ftp.retrbinary('RETR ' + filename, file.write)
         ftp.delete(filename)
         receipt_count = receipt_count + 1

@@ -7,7 +7,7 @@ def download_invoices():
     invoice_count = 0
     for invoice in invoices:
         filename = invoice[63:len(invoice)]
-        with open('/tmp/m122_eBill/invoices/' + filename + '.csv', 'wb') as file:
+        with open('/home/timon/workspace/m122/m122_LB2_EBill/tmp/invoices/' + filename + '.csv', 'wb') as file:
             ftp.retrbinary('RETR ' + filename, file.write)
         ftp.delete(filename)
         invoice_count = invoice_count + 1
