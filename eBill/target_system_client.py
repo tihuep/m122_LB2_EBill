@@ -6,8 +6,8 @@ def upload_files(txt_file, xml_file):
     remotefile = txt_file.split('/')[len(txt_file.split('/')) - 1]
     with open(txt_file, 'rb') as file:
         ftp.storbinary('STOR %s' % remotefile, file)
-    if os.path.exists(txt_file):
-        os.remove(txt_file)
+#    if os.path.exists(txt_file):
+#        os.remove(txt_file)
 
     remotefile = xml_file.split('/')[len(xml_file.split('/')) - 1]
     with open(xml_file, 'rb') as file:
